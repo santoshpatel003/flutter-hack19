@@ -30,6 +30,7 @@ flutter:
   assets:
     - asset/hack19_bot_credentials.json
     - asset/flutter_icon.png
+    - img/placeholder.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

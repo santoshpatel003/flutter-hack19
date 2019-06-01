@@ -1,5 +1,3 @@
-import 'package:example/main.dart';
-import 'package:example/speech.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
 
@@ -16,6 +14,8 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
   final List<ChatMessage> _messages = <ChatMessage>[];
   final TextEditingController _textController = new TextEditingController();
 
+
+
   Widget _buildTextComposer() {
     return new IconTheme(
       data: new IconThemeData(color: Theme.of(context).accentColor),
@@ -26,6 +26,7 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
             new Flexible(
               child: new TextField(
                 controller: _textController,
+                // ignore: argument_type_not_assignable
                 onSubmitted: _handleSubmitted,
                 decoration:
                 new InputDecoration.collapsed(hintText: "Send a message"),
@@ -35,6 +36,7 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
               margin: new EdgeInsets.symmetric(horizontal: 4.0),
               child: new IconButton(
                   icon: new Icon(Icons.send),
+
                   onPressed: () => _handleSubmitted(_textController.text)),
             ),
           ],
@@ -46,7 +48,7 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
   void Response(query) async {
     _textController.clear();
     AuthGoogle authGoogle = await AuthGoogle(fileJson: "asset/hack19_bot_credentials.json").build();
-    Dialogflow dialogflow = Dialogflow(authGoogle: authGoogle,language: Language.english);
+    Dialogflow dialogflow =Dialogflow(authGoogle: authGoogle,language: Language.english);
     AIResponse response = await dialogflow.detectIntent(query);
     ChatMessage message = new ChatMessage(
       text: response.getMessage() ?? new CardDialogflow(response.getListMessage()[0]).title,
@@ -74,10 +76,10 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
+      /*appBar: new AppBar(
         title: new Text("Flutter Chat App"),
-      ),
-      body: new Column(children: <Widget>[
+      ),*/
+      body: Column(children: <Widget>[
         new Flexible(
             child: new ListView.builder(
               padding: new EdgeInsets.all(8.0),
@@ -86,7 +88,6 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
               itemCount: _messages.length,
             )),
         new Divider(height: 1.0),
-        // new Speech(),
         new Container(
           decoration: new BoxDecoration(color: Theme.of(context).cardColor),
           child: _buildTextComposer(),
@@ -113,10 +114,22 @@ class ChatMessage extends StatelessWidget {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            new Text(this.name, style:new TextStyle(fontWeight:FontWeight.bold )),
+            new Text(
+                this.name,
+                style:new TextStyle(fontWeight:FontWeight.
+                bold )
+            ),
             new Container(
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(new Radius.circular(6.0)),
+                color: Colors.grey[300]
+              ),
               margin: const EdgeInsets.only(top: 5.0),
-              child: new Text(text),
+              child: new Text(
+                  text
+              ),
+
             ),
           ],
         ),
@@ -132,6 +145,11 @@ class ChatMessage extends StatelessWidget {
           children: <Widget>[
             new Text(this.name, style: Theme.of(context).textTheme.subhead),
             new Container(
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(new Radius.circular(6.0)),
+                  color: Colors.grey[400]
+              ),
               margin: const EdgeInsets.only(top: 5.0),
               child: new Text(text),
             ),
