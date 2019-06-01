@@ -1,5 +1,5 @@
-import 'package:example/dialogflow_v1.dart';
 import 'package:example/dialogflow_v2.dart';
+import 'package:example/speech.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -33,32 +33,54 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: new Text(widget.title),
       ),
-      body: new Column(children: <Widget>[
-        // new Container(
-        //   margin: EdgeInsets.all(10.0),
-        //   child: new RaisedButton(
-        //     onPressed: () {
-        //       Navigator.push(
-        //         context,
-        //         MaterialPageRoute(builder: (context) => PageDialogflowV1()),
-        //       );
-        //     },
-        //     child: Text("Dialogflow v1"),
-        //   ),
-        // ),
+      body: 
+        Center(
+          child: 
+          new Column(children: <Widget>[
         new Container(
           margin: EdgeInsets.all(10.0),
-          child: new RaisedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomePageDialogflowV2()),
-              );
-            },
-            child: Text("Flutter Chat App"),
-          ),
+          child: Center(child: 
+            Column(
+            children: <Widget>[
+              new Container(
+                margin: EdgeInsets.all(10.0),
+                child : Image.asset(
+                'asset/flutter_icon.png',
+              ),
+            ),
+              // new Text('Globant Help Chat', style: TextStyle(
+              //   color: Colors.teal,
+              //   fontSize: 20,
+              //   fontWeight: FontWeight.w800
+              // )),
+              // new Container(
+              //   margin: EdgeInsets.fromLTRB(10, 100, 10, 100),
+              //   child: new Text('Info Text'),
+              // ),
+              new RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePageDialogflowV2()),
+                );
+              },
+              child: Text("Start Chating"),
+            ),
+            new RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Speech()),
+                );
+              },
+              child: Text("Speak"),
+            ),
+            ],
+          ) 
+          ) 
         )
       ]),
+        )
     );
   }
 }

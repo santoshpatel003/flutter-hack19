@@ -1,3 +1,5 @@
+import 'package:example/main.dart';
+import 'package:example/speech.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
 
@@ -44,7 +46,7 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
   void Response(query) async {
     _textController.clear();
     AuthGoogle authGoogle = await AuthGoogle(fileJson: "asset/hack19_bot_credentials.json").build();
-    Dialogflow dialogflow =Dialogflow(authGoogle: authGoogle,language: Language.english);
+    Dialogflow dialogflow = Dialogflow(authGoogle: authGoogle,language: Language.english);
     AIResponse response = await dialogflow.detectIntent(query);
     ChatMessage message = new ChatMessage(
       text: response.getMessage() ?? new CardDialogflow(response.getListMessage()[0]).title,
@@ -84,6 +86,7 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
               itemCount: _messages.length,
             )),
         new Divider(height: 1.0),
+        // new Speech(),
         new Container(
           decoration: new BoxDecoration(color: Theme.of(context).cardColor),
           child: _buildTextComposer(),
