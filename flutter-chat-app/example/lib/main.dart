@@ -1,5 +1,5 @@
 import 'package:example/dialogflow_v2.dart';
-import 'package:example/speech.dart';
+// import 'package:example/speech.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -48,15 +48,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 'asset/flutter_icon.png',
               ),
             ),
-              // new Text('Globant Help Chat', style: TextStyle(
-              //   color: Colors.teal,
-              //   fontSize: 20,
-              //   fontWeight: FontWeight.w800
-              // )),
-              // new Container(
-              //   margin: EdgeInsets.fromLTRB(10, 100, 10, 100),
-              //   child: new Text('Info Text'),
-              // ),
+              new Text('Flutter Bot', style: TextStyle(
+                color: Colors.teal,
+                fontSize: 40,
+                fontWeight: FontWeight.w800
+              )),
+              new Container(
+                margin: EdgeInsets.fromLTRB(10, 100, 10, 50),
+                child: Center(
+                  child: new Text('Hey, you can ask me technical questions related to FLutter', 
+                  style: new TextStyle(
+                    fontSize: 25
+                  ),
+                  )
+                ) ,
+              ),
               new RaisedButton(
               onPressed: () {
                 Navigator.push(
@@ -64,17 +70,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialPageRoute(builder: (context) => HomePageDialogflowV2()),
                 );
               },
-              child: Text("Start Chating"),
+              child: Text("Go and Ask"),
             ),
-            new RaisedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Speech()),
-                );
-              },
-              child: Text("Speak"),
-            ),
+            // new RaisedButton(
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(builder: (context) => Speech()),
+            //     );
+            //   },
+            //   child: Text("Speak"),
+            // ),
             ],
           ) 
           ) 
