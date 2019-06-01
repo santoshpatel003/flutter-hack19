@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
               new Container(
                 margin: EdgeInsets.fromLTRB(10, 100, 10, 50),
                 child: Center(
-                  child: new Text('Hey, you can ask me technical questions related to FLutter', 
+                  child: new Text('Hey, you can ask me about Flutter', 
                   style: new TextStyle(
                     fontSize: 25
                   ),

@@ -76,9 +76,9 @@ class _HomePageDialogflowV2 extends State<HomePageDialogflowV2> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      /*appBar: new AppBar(
-        title: new Text("Flutter Chat App"),
-      ),*/
+      appBar: new AppBar(
+        title: new Text("Flutter Bot"),
+      ),
       body: Column(children: <Widget>[
         new Flexible(
             child: new ListView.builder(
