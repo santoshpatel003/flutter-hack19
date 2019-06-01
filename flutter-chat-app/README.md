@@ -7,10 +7,6 @@ A new Flutter package.
 * [Example](https://github.com/VictorRancesCode/flutter_dialogflow/tree/master/example)
 
 
-<p align="center">
-  <img src="image1.png" width="350"/>
-</p>
-
 ## Installation
 
 * Add this to your package's pubspec.yaml file:
