@@ -1,5 +1,5 @@
 import 'package:example/dialogflow_v2.dart';
-// import 'package:example/speech.dart';
+import 'package:example/speech.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(new MyApp());
@@ -72,15 +72,15 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text("Go and Ask"),
             ),
-            // new RaisedButton(
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => Speech()),
-            //     );
-            //   },
-            //   child: Text("Speak"),
-            // ),
+            new RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Speech()),
+                );
+              },
+              child: Text("Go and Speak"),
+            ),
             ],
           ) 
           ) 
